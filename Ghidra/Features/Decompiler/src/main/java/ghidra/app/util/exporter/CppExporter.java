@@ -226,6 +226,7 @@ public class CppExporter extends Exporter {
 
 			String bodyCode = result.getBodyCode();
 			if (bodyCode != null) {
+        bodies.append("// @decompile-exp {\"address\": \"" + result.getAddress().toString() + "\"}");
 				bodies.append(bodyCode);
 				bodies.append(EOL);
 			}
@@ -462,6 +463,10 @@ public class CppExporter extends Exporter {
 			this.address = address;
 			this.headerCode = headerCode;
 			this.bodyCode = bodyCode;
+		}
+
+		Address getAddress() {
+			return address;
 		}
 
 		String getHeaderCode() {
